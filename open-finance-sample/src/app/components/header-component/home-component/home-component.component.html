@@ -1,0 +1,103 @@
+<div class="header-home">
+    <app-header-component class="header"></app-header-component>
+    <div fxLayout="coloumn" class="home" fxFlex>
+        <div class="row left-home">
+            <div class="left-text-box">
+                <img class="super-sim-image" src="../../../../assets/WemakeitSuperSim.svg">
+                <div class="underline-rect">
+                </div>
+                <img class="collect-img" src="../../../../assets/collect_img-video.png">
+            </div>
+        </div>
+        <div class="row right-home">
+            <div class="right-home-content">
+                <!-- <div class="rect-inp">
+                <h2 class="box-header">Eligibility Calculator</h2>
+                <div class="box-content">
+                    <span>Monthly Income</span>
+                </div>
+            </div> -->
+                <mat-card class="rect-inp">
+                    <h2 class="box-header">Eligibility Calculator</h2>
+                    <mat-card-content>
+
+                        <section>
+                            <mat-form-field class="monthly-income">
+                                <mat-label>Monthly Income</mat-label>
+                                <span>{{value| currency:'INR':'symbol-narrow':'4.0'}}<br /></span>
+
+                                <mat-slider [disabled]="disabled" [invert]="invert" [max]="max" [min]="min"
+                                    [step]="step" [tickInterval]="getSliderIncomeTickInterval()"
+                                    [(ngModel)]="incomeValue">
+                                </mat-slider>
+                                <div class="min-max-value">
+                                    <span>{{min| currency:'INR':'symbol-narrow':'4.0'}}</span>
+                                    <span>{{max| currency:'INR':'symbol-narrow':'4.0'}}</span>
+                                </div>
+                                <input matInput type="number" [(ngModel)]="min" [hidden]="true">
+
+                            </mat-form-field>
+                            <mat-form-field class="monthly-income">
+                                <mat-label>Monthly Expense</mat-label>
+                                <span>{{expenseValue| currency:'INR':'symbol-narrow':'4.0'}}<br /></span>
+
+                                <mat-slider [disabled]="disabled" [invert]="invert" [max]="incomeValue" [min]="0"
+                                    [step]="step" [tickInterval]="getSliderExpenseTickInterval()"
+                                    [(ngModel)]="expenseValue">
+                                </mat-slider>
+
+                                <input matInput type="number" [(ngModel)]="min" [hidden]="true">
+
+                            </mat-form-field>
+
+                        </section>
+
+                        <section>
+                            <mat-form-field class="repayment-tenure">
+                                <mat-label>Repayment Tenure</mat-label>
+                                <mat-select class="tenure" #tenure>
+                                    <mat-select-trigger>
+                                        <span *ngIf="tenure.value?.length > 1" class="example-additional-selection">
+                                            {{tenure.value}}
+                                        </span>
+                                    </mat-select-trigger>
+                                    <mat-option *ngFor="let tenure of tenureList" [value]="tenure">{{tenure}}
+                                    </mat-option>
+                                </mat-select>
+                                <input matInput type="number" [(ngModel)]="min" [hidden]="true">
+                            </mat-form-field>
+                        </section>
+                        <section class="loan-section">
+                            <mat-label> Do you have any existing loans?</mat-label>
+                            <mat-form-field class="existing-loan-ver">
+
+                                <mat-slide-toggle class="toggle-loan" [color]="color" [checked]="checked"
+                                    [disabled]="disabled">
+                                </mat-slide-toggle>
+                                <input matInput type="number" [(ngModel)]="min" [hidden]="true">
+                            </mat-form-field>
+                        </section>
+                        <section class="emi-section">
+                            <mat-form-field class="emi-optional">
+                                <mat-label>EMI of existing loan(Optional)</mat-label>
+                                <input class="emi-input" matInput type="number">
+                            </mat-form-field>
+                        </section>
+
+                    </mat-card-content>
+                </mat-card>
+                <div class="sidebox">
+                    <h4 class="sidebox-heading">Loan Amount</h4>
+                    <span class="sidebox-value">{{100000| currency:'INR':'symbol-narrow':'4.0'}}<br /></span>
+
+                    <h4 class="sidebox-heading">Your EMI will be</h4>
+                    <span class="sidebox-value">{{15000| currency:'INR':'symbol-narrow':'4.0'}}<br /></span>
+                    <button type="button" mat-raised-button #GetMoney>Get Money </button>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

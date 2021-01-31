@@ -1,0 +1,14 @@
+<div fxLayout="coloumn" class="container" fxFlex>
+    <mat-toolbar class="toolbar" class="transparent" [ngClass]="{ 'sticky' : isSticky,opacity:1}">
+        <div class="logo">
+            <img src="../../../../assets/logo.png">
+        </div>
+        <div class="menu-section">
+            <span class="menuItem" #Product>Product</span>
+            <span class="menuItem" #Solutions>Solutions</span>
+            <span class="menuItem" #Pricing>Pricing</span>
+            <button type="button" mat-stroked-button #Login>Login</button>
+            <button type="button" mat-raised-button #GetStarted>Get Started </button>
+        </div>
+    </mat-toolbar>
+</div>
